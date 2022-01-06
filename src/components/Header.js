@@ -17,7 +17,7 @@ import { CryptoState } from "../CryptoContext";
 const useStyles = makeStyles(() => ({
   title: {
     flex: 1,
-    color: "black",
+    color: "#26ddf9",
     fontFamily: "Montserrat",
     fontWeight: "bold",
     cursor: "pointer",
@@ -31,17 +31,17 @@ const Header = () => {
 
   const { currency, setCurrency } = CryptoState();
 
-  const lightTheme = createTheme({
+  const darkTheme = createTheme({
     palette: {
       primary: {
         main: "#fff",
       },
-      type: "light",
+      type: "dark",
     },
   });
   return (
-    <ThemeProvider theme={lightTheme}>
-      <AppBar color="transparent" position="static">
+    <ThemeProvider theme={darkTheme}>
+      <AppBar color="default" position="static">
         <Container>
           <Toolbar>
             <Typography

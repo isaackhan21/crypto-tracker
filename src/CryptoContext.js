@@ -5,7 +5,7 @@ const Crypto = createContext();
 
 const CryptoContext = ({ children }) => {
   const [currency, setCurrency] = useState("GPD");
-  const [symbol, setSymbol] = useState("USD");
+  const [symbol, setSymbol] = useState("£");
 
   useEffect(() => {
     if (currency === "GPD") setSymbol("£");
@@ -22,5 +22,5 @@ const CryptoContext = ({ children }) => {
 export default CryptoContext;
 
 export const CryptoState = () => {
-  useContext(Crypto);
+  return useContext(Crypto);
 };
