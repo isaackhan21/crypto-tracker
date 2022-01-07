@@ -57,7 +57,7 @@ const Header = () => {
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
             >
-              <MenuItem value={"GPD"}>GPD</MenuItem>
+              <MenuItem value={"GBP"}>GBP</MenuItem>
               <MenuItem value={"USD"}>USD</MenuItem>
             </Select>
           </Toolbar>

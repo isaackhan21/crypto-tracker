@@ -4,11 +4,11 @@ import { createContext, useContext, useState, useEffect } from "react";
 const Crypto = createContext();
 
 const CryptoContext = ({ children }) => {
-  const [currency, setCurrency] = useState("GPD");
+  const [currency, setCurrency] = useState("GBP");
   const [symbol, setSymbol] = useState("£");
 
   useEffect(() => {
-    if (currency === "GPD") setSymbol("£");
+    if (currency === "GBP") setSymbol("£");
     else if (currency === "USD") setSymbol("$");
   }, [currency]);
 
