@@ -54,8 +54,14 @@ const Header = () => {
               Crypto Tracker
             </Typography>
             <Select
-              variant="outlined"
-              style={{ width: 100, height: 40, marginRight: 15 }}
+              variant="standard"
+              style={{
+                width: 100,
+                height: 40,
+                color: "#fff",
+
+                marginRight: 15,
+              }}
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
             >
