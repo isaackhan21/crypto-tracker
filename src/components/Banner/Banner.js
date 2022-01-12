@@ -41,12 +41,12 @@ const Banner = () => {
           <Typography
             variant="subtitle2"
             style={{
-              color: "darkgrey",
+              color: "#606060",
               textTransform: "capitalize",
               fontFamily: "Montserrat",
             }}
           >
-            Crypto Tracker Info
+            Stay Informed On The Latest Crypto Currency Prices
           </Typography>
         </div>
         <Carousel />
