@@ -23,23 +23,16 @@ import { CryptoState } from "../CryptoContext";
 import { numberWithCommas } from "./Banner/Carousel";
 
 const CoinsTable = () => {
-  const [coins, setCoins] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const history = useHistory();
 
-  const { currency, symbol } = CryptoState();
+  const { currency, symbol, coins, loading, setCoins, setLoading, fetchCoins } =
+    CryptoState();
 
   console.log(coins);
 
   useEffect(() => {
-    const fetchCoins = async () => {
-      setLoading(true);
-      const { data } = await axios.get(CoinList(currency));
-      setCoins(data);
-      setLoading(false);
-    };
     fetchCoins();
   }, [currency]);
 
