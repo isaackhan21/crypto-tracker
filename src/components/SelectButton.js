@@ -19,6 +19,7 @@ const SelectButton = ({ children, selected, onClick }) => {
         color: "white",
       },
       width: "22%",
+      textAlign: "center",
     },
   });
 

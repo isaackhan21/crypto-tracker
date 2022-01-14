@@ -13,6 +13,8 @@ function App() {
     },
   }));
 
+  console.log(process.env);
+
   const classes = useStyles();
   return (
     <BrowserRouter>
