@@ -19,6 +19,7 @@ const Login = ({ handleClose }) => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         fullWidth
+        color="primary"
       />
       <TextField
         variant="outlined"
