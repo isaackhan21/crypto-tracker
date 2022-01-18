@@ -30,7 +30,7 @@ const Header = () => {
 
   const history = useHistory();
 
-  const { currency, setCurrency } = CryptoState();
+  const { currency, setCurrency, user } = CryptoState();
 
   console.log(currency);
 
@@ -69,7 +69,7 @@ const Header = () => {
               <MenuItem value={"GBP"}>GBP</MenuItem>
               <MenuItem value={"USD"}>USD</MenuItem>
             </Select>
-            <AuthModal />
+            {user ? "Logout" : <AuthModal />}
           </Toolbar>
         </Container>
       </AppBar>
