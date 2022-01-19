@@ -201,6 +201,7 @@ const CoinPage = () => {
                 height: 40,
                 backgroundColor: inWatchlist ? "#ff0000" : "#26ddf9",
                 border: "none",
+                fontWeight: "bold",
               }}
               onClick={inWatchlist ? removeFromWatchList : addtoWatchlist}
             >
