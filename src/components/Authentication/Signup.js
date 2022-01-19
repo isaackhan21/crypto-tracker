@@ -56,6 +56,7 @@ const Signup = ({ handleClose }) => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         fullWidth
+        inputProps={{ style: { color: "white" } }}
       />
       <TextField
         variant="outlined"
@@ -64,6 +65,7 @@ const Signup = ({ handleClose }) => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         fullWidth
+        inputProps={{ style: { color: "white" } }}
       />
       <TextField
         variant="outlined"
@@ -72,6 +74,7 @@ const Signup = ({ handleClose }) => {
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
         fullWidth
+        inputProps={{ style: { color: "white" } }}
       />
       <Button
         variant="contained"

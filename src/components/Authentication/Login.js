@@ -54,6 +54,7 @@ const Login = ({ handleClose }) => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         fullWidth
+        inputProps={{ style: { color: "white" } }}
       />
       <TextField
         variant="outlined"
@@ -62,6 +63,7 @@ const Login = ({ handleClose }) => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         fullWidth
+        inputProps={{ style: { color: "white" } }}
       />
 
       <Button
