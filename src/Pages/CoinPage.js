@@ -1,4 +1,9 @@
-import { LinearProgress, makeStyles, Typography } from "@material-ui/core";
+import {
+  Button,
+  LinearProgress,
+  makeStyles,
+  Typography,
+} from "@material-ui/core";
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
@@ -8,12 +13,14 @@ import { SingleCoin } from "../config/api";
 import { CryptoState } from "../CryptoContext";
 import ReactHtmlParser from "react-html-parser";
 import { numberWithCommas } from "../components/Banner/Carousel";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 const CoinPage = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState();
 
-  const { currency, symbol } = CryptoState();
+  const { currency, symbol, user, watchlist, setAlert } = CryptoState();
 
   console.log(coin);
 
@@ -63,11 +70,13 @@ const CoinPage = () => {
       padding: 25,
       paddingTop: 10,
       width: "100%",
+
+      [theme.breakpoints.down("sm")]: {
+        flexDirection: "column",
+        alignItems: "center",
+      },
       [theme.breakpoints.down("md")]: {
         display: "flex",
-        justifyContent: "space-around",
-      },
-      [theme.breakpoints.down("sm")]: {
         flexDirection: "column",
         alignItems: "center",
       },
@@ -76,6 +85,29 @@ const CoinPage = () => {
       },
     },
   }));
+
+  const inWatchlist = watchlist.includes(coin?.id);
+
+  const addtoWatchlist = async () => {
+    const coinRef = doc(db, "watchlist", user.uid);
+
+    try {
+      await setDoc(coinRef, {
+        coins: watchlist ? [...watchlist, coin?.id] : [coin?.id],
+      });
+      setAlert({
+        open: true,
+        message: `${coin.name} Added to the Watchlist!`,
+        type: "success",
+      });
+    } catch (error) {
+      setAlert({
+        open: true,
+        message: error.message,
+        type: "error",
+      });
+    }
+  };
 
   const classes = useStyles();
 
@@ -135,6 +167,21 @@ const CoinPage = () => {
               M
             </Typography>
           </span>
+
+          {user && (
+            <Button
+              variant="outlined"
+              style={{
+                width: "100%",
+                height: 40,
+                backgroundColor: "#26ddf9",
+                border: "none",
+              }}
+              onClick={addtoWatchlist}
+            >
+              {inWatchlist ? "Remove from Watchlist" : "Add to Watchlist"}
+            </Button>
+          )}
         </div>
       </div>
       <CoinInfo coin={coin} />
